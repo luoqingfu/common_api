@@ -1,0 +1,11 @@
+# 首页模块
+- id: 0
+  caseName: 登录接口
+  url: /oauth/token
+  method: post
+  flag: 1 #是否执行
+  request: {
+    'areaCode': "+86",
+    'password': 'password',  # 使用密码登录
+    'mobilePhoneNumber': '111111',
+  }
