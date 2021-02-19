@@ -17,8 +17,8 @@ r = redis.StrictRedis(host='*****', port=0000, db=0, password=00000000, decode_r
 
 class Rds():
 
-    def read_ticket(self, key, uid, value):
-        """读取对应uid的ticket"""
+    def read_token(self, key, uid, value):
+        """读取对应uid的token"""
         if r.hget(key, uid) == None:
             #如果指定的key没有值，则设为指定的value
            key_value = r.hset(key, uid, value)
