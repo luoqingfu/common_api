@@ -17,7 +17,7 @@ import click as click
 import pytest
 import requests
 
-from conftest import REPORT_DIR, cases_path, rerun, serverurl, pytest_terminal_summary
+from conftest import REPORT_DIR, cases_path, rerun, serverurl
 
 '''
 说明：
@@ -30,10 +30,11 @@ def upload_times():
     url = serverurl + '/apicount'
     data = {}
     try:
-        request = requests.post(
-            url=url,
-            data=data,
-        )
+        # request = requests.post(
+        #     url=url,
+        #     data=data,
+        # )
+        pass
     except:
         pass
 

@@ -12,13 +12,17 @@
 # import lib
 import pymysql
 
-class Db():
-    def read_uid(self, erban_no):
-        """根据用户id获取uid"""
-        connection = pymysql.connect(db='xxxx', user='root', password='xxxxx', host='xxxxx',
-                                     port=3306, charset='utf8')
-        cursor = connection.cursor()
-        cursor.execute('SELECT uid FROM users WHERE user_id = {}'.format(erban_no))
-        result = cursor.fetchone()
-        connection.close()
-        return result[0] #result 返回的为元组，取第一个值
+def read_api():
+    """根据用户id获取uid"""
+    connection = pymysql.connect(db='common_api_db', user='root', password='12345678', host='127.0.0.1',
+                                 port=3306, charset='utf8')
+    cursor = connection.cursor(pymysql.cursors.DictCursor)  # 以字典的方式获取在数据库中的api
+    cursor.execute('SELECT {},{},{},{},{} FROM api WHERE flag = 1 and status = 1'.format('api_name', 'url', 'api_method', 'request_data', 'project_id'))
+    result = cursor.fetchall()
+    connection.close()
+    return result
+
+
+
+if __name__ == '__main__':
+    read_api()

@@ -23,14 +23,8 @@ logging.basicConfig(level=logging.DEBUG)
 
 class TestLogin(Login):
     def test_login_with_pwd(self):
-        """
-        测试使用密码登录
-        :return:
-        """
-        log = logging.getLogger('test_login_with_pwd')
-        code = self.login_with_phone_password(phone, password)
-        log.info('返回的状态码为{}'.format(code))
-        assert code == True
+        """测试使用密码登录"""
+        assert 1 == 2
 
 
 if __name__ == '__main__':
